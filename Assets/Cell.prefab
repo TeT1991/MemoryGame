@@ -156,3 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9594778c21e4f7c4cafc8ef0611ba86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _standartColor: {r: 1, g: 1, b: 1, a: 1}
+  _selectedColor: {r: 1, g: 0.8537736, b: 0.8537736, a: 1}
+  _underCursorColor: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}

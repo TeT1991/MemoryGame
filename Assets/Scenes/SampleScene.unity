@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 421718456}
   - component: {fileID: 421718453}
   - component: {fileID: 421718455}
+  - component: {fileID: 421718457}
+  - component: {fileID: 421718458}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -155,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cellPrefab: {fileID: 2110531691188186257, guid: 799986bd53b5d3e42b31d9e4ff230bf8, type: 3}
+  _size: 8
   spacing: 0
 --- !u!4 &421718454
 Transform:
@@ -199,6 +202,21 @@ MonoBehaviour:
   - {fileID: 88775689, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
   - {fileID: 1031209220, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
   - {fileID: -422207294, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -495193184, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -1495728834, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 655257747, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -2041734894, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1774143917, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -269955056, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -455495195, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1746203580, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1081667859, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -1192060073, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1671962127, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1519179863, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 88775689, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: 1031209220, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
+  - {fileID: -422207294, guid: 768ed2b83aead3e48a8ed0158d2d7511, type: 3}
 --- !u!114 &421718456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +231,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fieldCreator: {fileID: 421718453}
   _cellsInitializator: {fileID: 421718455}
+  _cellsSelector: {fileID: 421718458}
+  _cellsFliper: {fileID: 421718457}
+  _showPicturesTime: 0
+--- !u!114 &421718457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421718452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cdb878a71987143ba9a59feab4c9b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &421718458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421718452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 518865f723a8a114d8c7c1e0fe8ac615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CellSelected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,44 +7,22 @@ public class CellsInitializator : MonoBehaviour
 {
     [SerializeField]private List<Sprite> _sprites;
     
-    private bool TryFindValuesPair(Cell[,] cells)
+    public void InitializeCells(ref Cell[,] cells)
     {
-        for (int i = 0; i < cells.GetLength(0); i++)
+        int sameValuesCount = 2;
+        List<int> cellsValues = new List<int>();
+
+        for (int i=0; i< sameValuesCount; i++)
         {
-            for (int j = 0; j < cells.GetLength(1); j++)
-            {
-                foreach(Cell cell in cells)
-                {
-                    if(cell != cells[i,j] && cell.Value == cells[i, j].Value)
-                    {
-                        return true;
-                    }
-                }
-            }
+            cellsValues.AddRange(Enumerable.Range(0, (cells.GetLength(0) * cells.GetLength(1)) / 2).ToList());
         }
 
-        return false;
-    }
-
-    public void InitializeCells(Cell[,] cells)
-    {
-        List<int> cellsValues = Enumerable.Range(0, (cells.GetLength(0) * cells.GetLength(1))).ToList();
-        
-
-        for (int i = 0; i < cells.GetLength(0); i++)
+        foreach (Cell cell in cells)
         {
-            for (int j = 0; j < cells.GetLength(1); j++)
-            {
-                int value = Random.Range(0, cells.GetLength(0) * cells.GetLength(1) - 1);
-                cells[i, j].SetValue(value);
-                if (TryFindValuesPair(cells))
-                {
-                    cellsValues.Remove(value);
-                }
-                cells[i, j].SetOpenSprite(_sprites);
-            }
+            int randomIndex = Random.Range(0, cellsValues.Count);
+            cell.SetValue(cellsValues[randomIndex]);
+            cell.SetOpenSprite(_sprites[randomIndex]);
+            cellsValues.RemoveAt(randomIndex);
         }
     }
-
-    
 }

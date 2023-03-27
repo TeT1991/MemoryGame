@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
+    [SerializeField] private Color _standartColor;
+    [SerializeField] private Color _selectedColor;
+    [SerializeField] private Color _underCursorColor;
+    
+
+    private CellsSelector _cellsSelector;
+
     private SpriteRenderer _spriteRenderer;
     private Sprite _closeSprite;
     private Sprite _openSprite;
 
-    public int Value { get; private set; }  
-    private bool _isOpen;
+    public int Value { get; private set; } 
+    public bool _isOpen { get; private set; }
 
 
     private void Start()
     {
+        _cellsSelector = FindObjectOfType<CellsSelector>();
         _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _closeSprite = _spriteRenderer.sprite;
     }
@@ -21,16 +29,51 @@ public class Cell : MonoBehaviour
     public void SetValue(int value)
     {
         Value = value;
-        Debug.Log("!!!!");
     }
 
-    public void SetOpenSprite(List<Sprite> sprites)
+    public void SetOpenSprite(Sprite sprite)
     {
-        _openSprite = sprites[Value];
+        _openSprite = sprite;
     }
 
     private void OnMouseDown()
     {
-        Debug.Log(Value);
+        if(_isOpen == false)
+        {
+            _cellsSelector.TrySetSelectedCell(this);
+            Debug.Log("CLICK");
+            SetColor(_selectedColor);
+            
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if(_isOpen == false)
+        {
+            SetColor(_underCursorColor);
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        SetColor(_standartColor);
+    }
+
+    private void SetColor(Color color)
+    {
+        _spriteRenderer.color = color;
+    }
+
+    public void Open()
+    {
+        _isOpen = true;
+        _spriteRenderer.sprite = _openSprite;
+    }
+
+    public void Close()
+    {
+        _isOpen = false;
+        _spriteRenderer.sprite = _closeSprite;
     }
 }

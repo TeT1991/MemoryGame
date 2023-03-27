@@ -6,8 +6,9 @@ public class FieldCreator : MonoBehaviour
 {
     [SerializeField] private Cell _cellPrefab;
 
-    [SerializeField] private const int _SIZE = 4;
-    private int _dimensionSize = _SIZE / 2;
+
+    [SerializeField] private int _size = 8;
+    private int _dimensionSize;
     [SerializeField] private float spacing;
 
     public Cell[,] CreateField()
@@ -30,13 +31,14 @@ public class FieldCreator : MonoBehaviour
 
     private void Start()
     {
+        _dimensionSize = _size / 2;
         SetFieldPosition(); 
     }
 
     private void SetFieldPosition()
     {
-        int xPosition = (_SIZE / 2) / 2;
-        int yPosition = (_SIZE / 2) / 2;
+        int xPosition = (_size / 2) / 2;
+        int yPosition = (_size / 2) / 2;
         float offset = 0;
         if (_dimensionSize % 2 == 0)
         {
